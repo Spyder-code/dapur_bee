@@ -63,7 +63,7 @@ class TransactionController extends Controller
                 'note' => $data['message']
             ]);
         }
-        $carts->delete();
+        Cart::where('user_id',Auth::id())->delete();
         // $service_midtrans = new MidtransService();
         // $transaction = $service_midtrans->pay($trx);
         return redirect()->route('payment.pay',['invoice'=>$trx->invoice])->with('success','Transaction has success created');

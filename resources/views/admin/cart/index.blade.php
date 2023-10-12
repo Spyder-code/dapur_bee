@@ -48,7 +48,7 @@
             dom: 'Bfrtip',
             responsive: true,
             buttons: [
-                'copy', 'csv', 'excel', 'pdf', 'print'
+                'excel', 'pdf'
             ]
         });
     } else {
