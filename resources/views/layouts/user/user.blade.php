@@ -6,7 +6,7 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>@yield('title','Dapur_Bee')</title>
     <meta name="robots" content="noindex, follow" />
-    <meta name="description" content="@yield('description','Toko Bunga Dapur_Bee menyediakan berbagai macam produk makanan. ')">
+    <meta name="description" content="@yield('description','Dapur_Bee menyediakan berbagai macam produk makanan. ')">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('images/logo.jpeg') }}">
@@ -15,14 +15,14 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="{{ url('/') }}">
     <meta property="og:title" content="@yield('title','Dapur_Bee')">
-    <meta property="og:description" content="@yield('description','Toko Bunga Dapur_Bee menyediakan berbagai macam produk makanan. ')">
+    <meta property="og:description" content="@yield('description','Dapur_Bee menyediakan berbagai macam produk makanan. ')">
     <meta property="og:image" content="@yield('img-meta',asset('images/logo.jpeg'))">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="{{ url('/') }}">
     <meta property="twitter:title" content="@yield('title','Dapur_Bee')">
-    <meta property="twitter:description" content="@yield('description','Toko Bunga Dapur_Bee menyediakan berbagai macam produk makanan. ')">
+    <meta property="twitter:description" content="@yield('description','Dapur_Bee menyediakan berbagai macam produk makanan. ')">
     <meta property="twitter:image" content="@yield('img-meta',asset('images/logo.jpeg'))">
 
     <!-- CSS ============================================ -->
