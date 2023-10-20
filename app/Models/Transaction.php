@@ -11,6 +11,7 @@ class Transaction extends Model
     use HasFactory;
 
     protected $fillable = [
+        'to_date',
         'message',
         'user_id',
         'invoice',
