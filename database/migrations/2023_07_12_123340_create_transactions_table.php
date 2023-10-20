@@ -10,14 +10,14 @@ class CreateTransactionsTable extends Migration
     {
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
-            $table->dateTime('to_date');
+            $table->dateTime('to_date')->nullable();
             // $table->string('from')->nullable();
             // $table->string('to')->nullable();
             $table->string('message')->nullable();
             $table->foreignId('user_id')->constrained('users');
             $table->string('invoice')->nullable();
-            $table->string('receiver');
-            $table->string('phone');
+            $table->string('receiver')->nullable();
+            $table->string('phone')->nullable();
             $table->integer('distance')->nullable();
             $table->integer('province_id')->nullable();
             $table->integer('city_id')->nullable();
@@ -30,6 +30,8 @@ class CreateTransactionsTable extends Migration
             $table->string('postcode')->nullable();
             $table->double('amount')->default(0);
             $table->double('total')->default(0);
+            $table->double('received')->default(0);
+            $table->double('payout')->default(0);
             $table->boolean('is_paid')->default(0);
             $table->foreignId('payment_status_id')->default(4)->constrained('payment_statuses');
             $table->string('token')->nullable();

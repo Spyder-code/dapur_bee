@@ -4,7 +4,7 @@
     @php
         $items = ['<a href="'.route('transaction.create').'" data-theme="light" class="btn btn-bg-white btn-active-color-primary">Tambah Transaksi</a>'];
     @endphp
-    <x-toolbar :title="'List Transaksi'" :items="[]"></x-toolbar>
+    <x-toolbar :title="'List Transaksi'" :items="$items"></x-toolbar>
 @endsection
 @section('content')
 <div class="content flex-row-fluid" id="kt_content">
@@ -49,12 +49,11 @@
                         <th class="min-w-125px">Pesanan Untuk Tgl</th>
                         <th class="min-w-125px">Pelanggan</th>
                         <th class="min-w-125px">Invoice</th>
-                        <th class="min-w-125px">Harga</th>
                         <th class="min-w-125px">Penerima</th>
                         <th class="min-w-125px">Status</th>
                         <th class="min-w-125px">Status Pembayaran</th>
                         <th class="min-w-125px">No. HP</th>
-                        <th class="min-w-125px">Ongir</th>
+                        <th class="min-w-125px">Ongkir</th>
                         <th class="min-w-125px">Alamat</th>
                         <th class="min-w-125px">Kode POS</th>
                         <th class="min-w-125px">Total</th>
@@ -94,7 +93,6 @@
                 { data: 'to_date', name: 'to_date' },
                 { data: 'user_id', name: 'user_id' },
                 { data: 'invoice', name: 'invoice' },
-                { data: 'amount', name: 'amount' },
                 { data: 'receiver', name: 'receiver' },
                 { data: 'status', name: 'status' },
                 { data: 'is_paid', name: 'is_paid' },

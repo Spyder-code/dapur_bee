@@ -21,6 +21,7 @@
             }
         </style>
 		<!--end::Global Stylesheets Bundle-->
+        @livewireStyles
 	</head>
 	<!--end::Head-->
 	<!--begin::Body-->
@@ -77,6 +78,7 @@
         <script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.colVis.min.js"></script>
         @yield('script')
         @stack('scripts')
+        @livewireScripts
 	</body>
 	<!--end::Body-->
 </html>

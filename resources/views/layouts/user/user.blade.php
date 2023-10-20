@@ -51,6 +51,19 @@
     <!-- <link rel="stylesheet" href="{{ asset('/') }}assets/css/vendor/vendor.min.css">
     <link rel="stylesheet" href="{{ asset('/') }}assets/css/plugins/plugins.min.css"> -->
     <link rel="stylesheet" href="{{ asset('/') }}assets/css/style.min.css">
+    <style>
+        .offcanvas-menu>ul>li>a {
+            display: block;
+            padding: 8px 24px 8px 0;
+            text-transform: uppercase;
+            color: #edc82e;
+        }
+        .offcanvas-social a{
+            background: transparent;
+            border: 1px solid #edc82e;
+            color: #edc82e;
+        }
+    </style>
 </head>
 
 <body class="offside-header-left">

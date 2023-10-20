@@ -8,7 +8,7 @@
         }
     @endphp
     <!-- OffCanvas Mobile Menu Start -->
-    <div class="offcanvas offcanvas-header">
+    <div class="offcanvas offcanvas-header" style="background-color: black">
         <div class="inner customScroll">
             <div class="offcanvas-logo">
                 <a href="{{ url('/') }}" class="d-flex justify-content-center"><img src="{{ asset('images/logo.png') }}" alt="dapur_bee" style="height: 120px"></a>
@@ -18,7 +18,7 @@
                     <div class="header-login">
                         @if (Auth::check())
                             <div class="dropdown">
-                                <button class="btn btn-light btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                                <button class="btn btn-light btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false" style="background: transparent; border:1px solid #edc82e; color:#edc82e">
                                     {{ Auth::check() ? \Str::words(Auth::user()->name, 1,'') : 'Login' }} <i class="fal fa-user"></i>
                                 </button>
                                 @auth
@@ -29,11 +29,11 @@
                                 @endauth
                             </div>
                         @else
-                            <a href="{{ route('page.profile') }}" class="btn btn-light btn-sm">Login <i class="fal fa-user"></i></a>
+                            <a href="{{ route('page.profile') }}" class="btn btn-light btn-sm" style="background: transparent; border:1px solid #edc82e; color:#edc82e">Login <i class="fal fa-user"></i></a>
                         @endif
                     </div>
                     <div class="header-cart">
-                        <a href="{{ route('page.carts') }}" class="mt-2"><span class="cart-count">{{ $cart_count }}</span><i class="fal fa-shopping-cart"></i></a>
+                        <a href="{{ route('page.carts') }}" class="mt-2" style="color: #edc82e"><span class="cart-count">{{ $cart_count }}</span><i class="fal fa-shopping-cart"></i></a>
                     </div>
                 </div>
             </div>
@@ -78,7 +78,7 @@
             <a href="https://wa.me/{{ $setting->whatsapp }}" class="btn btn-success btn-outline-hover-success mt-5 btn-sm"><i class="fa fa-phone-alt"></i> Whatsapp</a>
             @endif --}}
             @auth
-                <span class="mt-2">Selamat berbelanja, {{ Auth::user()->name }} 😊</span>
+                <span class="mt-2 text-white">Selamat berbelanja, {{ Auth::user()->name }} 😊</span>
                 <form action="{{ route('logout') }}" method="post">
                     @csrf
                     <button type="submit" onclick="return confirm('are you sure?')" class="btn btn-danger btn-outline-hover-danger mt-3 w-100 btn-sm"><i class="fa fa-door-closed"></i> Logout</button>
@@ -88,8 +88,8 @@
     </div>
     <!-- OffCanvas Mobile Menu End -->
 
-        <!-- OffCanvas Search Start -->
-        <div id="offcanvas-mobile-menu" class="offcanvas offcanvas-mobile-menu">
+    <!-- OffCanvas Search Start -->
+    <div id="offcanvas-mobile-menu" class="offcanvas offcanvas-mobile-menu">
             <div class="inner customScroll">
                 <div class="offcanvas-logo">
                     <a href="{{ url('/') }}" class="d-flex justify-content-center"><img src="{{ asset('images/logo.png') }}" alt="dapur_bee" style="height: 120px"></a>
@@ -110,7 +110,7 @@
                                     @endauth
                                 </div>
                             @else
-                                <a href="{{ route('page.profile') }}" class="btn btn-light btn-sm">Login <i class="fal fa-user"></i></a>
+                                <a href="{{ route('page.profile') }}" class="btn btn-light btn-sm" style="background: transparent; border:1px solid #edc82e; color:#edc82e">Login <i class="fal fa-user"></i></a>
                             @endif
                         </div>
                         <div class="header-cart">
@@ -164,10 +164,10 @@
                     </form>
                 @endauth
             </div>
-        </div>
-        <!-- OffCanvas Search End -->
+    </div>
+    <!-- OffCanvas Search End -->
 
-        <div class="offcanvas-overlay"></div>
+    <div class="offcanvas-overlay"></div>
 
     <!-- Modal -->
     <div class="quickViewModal modal fade" id="quickViewModal">

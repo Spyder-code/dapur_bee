@@ -41,8 +41,8 @@ Route::middleware(['auth','customer'])->group(function(){
     Route::get('/orders',[PageController::class,'order'])->name('page.order');
     Route::get('/pay',[PaymentController::class,'pay'])->name('payment.pay');
     Route::post('/reset-token/{transaction}',[PaymentController::class,'reset_token'])->name('payment.reset_token');
-    Route::post('transaction',[TransactionController::class,'store'])->name('transaction.store');
 });
+Route::post('transaction',[TransactionController::class,'store'])->name('transaction.store');
 Route::put('transaction/{transaction}',[TransactionController::class,'update'])->name('transaction.update');
 
 Route::middleware(['auth','admin'])->prefix('admin')->group(function(){

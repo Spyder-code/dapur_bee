@@ -37,33 +37,51 @@ class TransactionController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-        $data['expedition_price'] = preg_replace('/[^0-9]/', '', $data['expedition_price']);
-        $data['user_id'] = Auth::id();
-        $data['expedition_type'] = 'Ongkir Rp. '.number_format($data['expedition_price']);
-        if(!preg_match("/[^+0-9]/",trim($data['phone']))){
-            if(substr(trim($data['phone']), 0, 2)=="62"){
-                $data['phone'] = trim($data['phone']);
-            }
-            else if(substr(trim($data['phone']), 0, 1)=="0"){
-                $data['phone'] = "62".substr(trim($data['phone']), 1);
+        if($request->tipe=='is_now'){
+            $data['is_paid'] = 1;
+            $data['status'] = 'complete';
+        }else{
+            $data['expedition_price'] = preg_replace('/[^0-9]/', '', $data['expedition_price']);
+            $data['expedition_type'] = 'Ongkir Rp. '.number_format($data['expedition_price']);
+            if(!preg_match("/[^+0-9]/",trim($data['phone']))){
+                if(substr(trim($data['phone']), 0, 2)=="62"){
+                    $data['phone'] = trim($data['phone']);
+                }
+                else if(substr(trim($data['phone']), 0, 1)=="0"){
+                    $data['phone'] = "62".substr(trim($data['phone']), 1);
+                }
             }
         }
+        $data['user_id'] = Auth::id();
         $date = date('Ymd');
         $no = Transaction::where('user_id',$data['user_id'])->count() + 1;
         $data['invoice'] = 'INV/'.$date.'/'.$data['user_id'].sprintf('%02d',$no);
         $trx = Transaction::create($data);
 
-        $carts = Cart::where('user_id',Auth::id())->get();
-        foreach ($carts as $cart) {
-            TransactionDetail::create([
-                'transaction_id' => $trx->id,
-                'user_id' => $data['user_id'],
-                'product_id' => $cart->product_id,
-                'qty' => $cart->qty,
-                'note' => $data['message']
-            ]);
+        if(request('tipe')){
+            $carts = json_decode($request->data);
+            foreach ($carts as $key => $cart) {
+                TransactionDetail::create([
+                    'transaction_id' => $trx->id,
+                    'user_id' => $data['user_id'],
+                    'product_id' => $cart->id,
+                    'qty' => $cart->jumlah,
+                ]);
+            }
+            return back()->with('success','Transaction has success created');
+        }else{
+            $carts = Cart::where('user_id',Auth::id())->get();
+            foreach ($carts as $cart) {
+                TransactionDetail::create([
+                    'transaction_id' => $trx->id,
+                    'user_id' => $data['user_id'],
+                    'product_id' => $cart->product_id,
+                    'qty' => $cart->qty,
+                    'note' => $data['message']
+                ]);
+            }
+            $carts->delete();
         }
-        $carts->delete();
         // $service_midtrans = new MidtransService();
         // $transaction = $service_midtrans->pay($trx);
         return redirect()->route('payment.pay',['invoice'=>$trx->invoice])->with('success','Transaction has success created');

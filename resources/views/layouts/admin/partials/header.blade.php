@@ -31,7 +31,7 @@
             <!--end::Navbar-->
             <!--begin::Toolbar wrapper-->
             <div class="topbar d-flex align-items-stretch flex-shrink-0">
-                <div class="d-flex align-items-center ms-1 ms-lg-3">
+                {{-- <div class="d-flex align-items-center ms-1 ms-lg-3">
                     <!--begin::Menu toggle-->
                     <a href="#" class="btn btn-icon btn-active-light-primary btn-custom w-30px h-30px w-md-40px h-md-40px" data-kt-menu-trigger="{default:'click', lg: 'hover'}" data-kt-menu-attach="parent" data-kt-menu-placement="bottom-end">
                         <!--begin::Svg Icon | path: icons/duotune/general/gen060.svg-->
@@ -124,7 +124,7 @@
                         <!--end::Menu item-->
                     </div>
                     <!--end::Menu-->
-                </div>
+                </div> --}}
                 <!--end::Theme mode-->
                 <!--begin::User-->
                 <div class="d-flex align-items-center me-n3 ms-1 ms-lg-3" id="kt_header_user_menu_toggle">

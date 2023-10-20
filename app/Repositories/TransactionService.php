@@ -48,7 +48,7 @@ class TransactionService extends Repository
                 return date('d/m/y', strtotime($data->created_at));
             })
             ->addColumn('to_date', function($data){
-                return date('d/m/y H:i', strtotime($data->to_date));
+                return $data->to_date ? date('d/m/y H:i', strtotime($data->to_date)) : '-';
             })
             ->addColumn('note', function($data){
                 return explode(',',json_encode($data->transaction_details()->pluck('note')));
