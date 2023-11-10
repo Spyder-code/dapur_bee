@@ -50,6 +50,10 @@
                                 <td><b>: {{ $transaction->is_paid == 1 ? 'Dibayar' : 'Belum dibayar' }}</b></td>
                             </tr>
                             <tr>
+                                <td>Pembayaran</td>
+                                <td><b>: {{ $transaction->payment_method }}</b></td>
+                            </tr>
+                            <tr>
                                 <td>Status Pesanan</td>
                                 <td><b>: {{ $transaction->status }}</b></td>
                             </tr>

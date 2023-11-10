@@ -51,6 +51,7 @@
     <!-- <link rel="stylesheet" href="{{ asset('/') }}assets/css/vendor/vendor.min.css">
     <link rel="stylesheet" href="{{ asset('/') }}assets/css/plugins/plugins.min.css"> -->
     <link rel="stylesheet" href="{{ asset('/') }}assets/css/style.min.css">
+    @yield('style')
     <style>
         .offcanvas-menu>ul>li>a {
             display: block;
@@ -112,6 +113,7 @@
     <!-- Main Activation JS -->
     <script src="{{ asset('/') }}assets/js/main.js"></script>
     @stack('script')
+    @yield('script')
 </body>
 
 </html>

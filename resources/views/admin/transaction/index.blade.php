@@ -2,7 +2,7 @@
 @section('title', 'Transaksi')
 @section('toolbar')
     @php
-        $items = ['<a href="'.route('transaction.create').'" data-theme="light" class="btn btn-bg-white btn-active-color-primary">Tambah Transaksi</a>'];
+        $items = ['<a href="'.route('transaction.create').'" data-theme="light" class="btn btn-success">Tambah Transaksi</a>'];
     @endphp
     <x-toolbar :title="'List Transaksi'" :items="$items"></x-toolbar>
 @endsection
@@ -13,16 +13,16 @@
             <x-message></x-message>
             <div class="row">
                 <div class="col-6">
-                    <form method="GET" action="{{ route('transaction.index') }}" class="d-flex gap-2">
-                        <div>
+                    <form method="GET" action="{{ route('transaction.index') }}" class="d-flex">
+                        <div class="mt-3">
                             <label>Dari</label>
                             <input type="date" name="from" id="from" class="form-control" value="{{ request('from') }}">
-                        </div>
-                        <div>
+                        </div class="mt-3">
+                        <div class="mt-3">
                             <label>Sampai</label>
                             <input type="date" name="to" id="to" class="form-control" value="{{ request('to') }}">
                         </div>
-                        <div>
+                        <div class="mt-3">
                             <label>Status</label>
                             <select name="status" id="status" class="form-control">
                                 <option {{ $status=='all'?'selected':'' }} value="all">Semua</option>
@@ -51,6 +51,7 @@
                         <th class="min-w-125px">Invoice</th>
                         <th class="min-w-125px">Penerima</th>
                         <th class="min-w-125px">Status</th>
+                        <th class="min-w-125px">Pembayaran</th>
                         <th class="min-w-125px">Status Pembayaran</th>
                         <th class="min-w-125px">No. HP</th>
                         <th class="min-w-125px">Ongkir</th>
@@ -95,6 +96,7 @@
                 { data: 'invoice', name: 'invoice' },
                 { data: 'receiver', name: 'receiver' },
                 { data: 'status', name: 'status' },
+                { data: 'payment_method', name: 'payment_method' },
                 { data: 'is_paid', name: 'is_paid' },
                 { data: 'phone', name: 'phone' },
                 { data: 'expedition_price', name: 'expedition_price' },
@@ -153,6 +155,7 @@
                 { data: 'amount', name: 'amount' },
                 { data: 'receiver', name: 'receiver' },
                 { data: 'status', name: 'status' },
+                { data: 'payment_method', name: 'payment_method' },
                 { data: 'is_paid', name: 'is_paid' },
                 { data: 'phone', name: 'phone' },
                 { data: 'expedition_price', name: 'expedition_price' },

@@ -2,7 +2,7 @@
 @section('title', 'Kategori Produk')
 @section('toolbar')
     @php
-        $items = ['<a href="'.route('product-category.create').'" data-theme="light" class="btn btn-bg-white btn-active-color-primary">Tambah Kategori</a>'];
+        $items = ['<a href="'.route('product-category.create').'" data-theme="light" class="btn btn-success">Tambah Kategori</a>'];
     @endphp
     <x-toolbar :title="'List Kategori'" :items="$items"></x-toolbar>
 @endsection

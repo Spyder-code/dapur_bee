@@ -114,10 +114,10 @@
                                     <option value="BCA">(Transfer Bank BCA) 263816238 A.n Dapur_Bee</option>
                                     <option value="BRI">(Transfer Bank BRI) 26381623823 A.n Dapur_Bee</option>
                                     <option value="E-Money (DANA,OVE,SHOPEE PAY)">(Transfer E-Money) 083857317946 A.n Dapur_Bee</option>
-                                    {{-- <option value="cod">Bayar Ditempat</option> --}}
+                                    <option value="cod">Bayar Ditempat (COD)</option>
                                 </select>
                             </div>
-                            <div class="mb-2">
+                            <div class="mb-2" id="bukti">
                                 <label for="payment_file">Bukti Pembayaran</label>
                                 <input type="file" name="payment_file" id="payment_file">
                             </div>
@@ -128,9 +128,11 @@
                     </div>
                 </form>
                 @else
-                    <a href="{{ asset($transaction->payment_file) }}" target="d_blank">
-                        <img src="{{ asset($transaction->payment_file) }}" alt="file" class="img-fluid" style="height: 200px">
-                    </a>
+                    @if ($transaction->payment_file=='cod')
+                        <a href="{{ asset($transaction->payment_file) }}" target="d_blank">
+                            <img src="{{ asset($transaction->payment_file) }}" alt="file" class="img-fluid" style="height: 200px">
+                        </a>
+                    @endif
 
                 @endif
             </div>
@@ -138,7 +140,7 @@
     </div>
 @endsection
 @push('script')
-    <script src="https://app.midtrans.com/snap/snap.js" data-client-key="{{ env('CLIENT_KEY_MIDTRANS') }}"></script>
+    {{-- <script src="https://app.midtrans.com/snap/snap.js" data-client-key="{{ env('CLIENT_KEY_MIDTRANS') }}"></script>
     <script type="text/javascript">
         document.getElementById('pay-button').onclick = function(){
             payMidtrans();
@@ -166,5 +168,15 @@
         }
 
         payMidtrans();
+    </script> --}}
+    <script>
+        $('#payment_method').change(function (e) {
+            var val = $(this).val();
+            if (val=='cod') {
+                $('#bukti').hide();
+            }else{
+                $('#bukti').show();
+            }
+        });
     </script>
 @endpush

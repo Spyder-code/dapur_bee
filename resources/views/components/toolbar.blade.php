@@ -5,13 +5,13 @@
     ]
 @endphp --}}
 <!--begin::Toolbar-->
-<div class="toolbar py-5 py-lg-15" id="kt_toolbar">
+<div class="toolbar" id="kt_toolbar">
     <!--begin::Container-->
-    <div id="kt_toolbar_container" class="container-xxl d-flex flex-stack flex-wrap">
+    <div id="kt_toolbar_container" class="container-xxl d-flex justify-content-between">
         <!--begin::Page title-->
         <div class="page-title d-flex flex-column me-3">
             <!--begin::Title-->
-            <h1 class="d-flex text-white fw-bold my-1 fs-3">{{ $title ?? '' }}</h1>
+            <h1 class="d-flex text-dark fw-bold my-1 fs-3">{{ $title ?? '' }}</h1>
             <!--end::Title-->
         </div>
         <!--end::Page title-->

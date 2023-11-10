@@ -52,6 +52,9 @@ class TransactionController extends Controller
                 }
             }
         }
+        if($data['payment_method']=='cod'){
+            $data['is_paid'] = 0;
+        }
         $data['user_id'] = Auth::id();
         $date = date('Ymd');
         $no = Transaction::where('user_id',$data['user_id'])->count() + 1;
@@ -80,7 +83,7 @@ class TransactionController extends Controller
                     'note' => $data['message']
                 ]);
             }
-            $carts->delete();
+            Cart::where('user_id',Auth::id())->delete();
         }
         // $service_midtrans = new MidtransService();
         // $transaction = $service_midtrans->pay($trx);
@@ -109,6 +112,11 @@ class TransactionController extends Controller
                 $path = 'transactions/';
                 $file->storeAs('public/'.$path,$filename);
                 $data['payment_file'] = 'storage/'.$path.$filename;
+            }
+            if($request->status){
+                if($request->status=='complete'){
+                    $data['is_paid'] = 1;
+                }
             }
 
             $transaction->update($data);

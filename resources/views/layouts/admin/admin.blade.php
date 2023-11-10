@@ -1,239 +1,275 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html class="no-js" lang="en">
 
 <head>
-    <!-- Required meta tags -->
     <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>@yield('title','Dapur_Bee')</title>
+    <meta name="robots" content="noindex, follow" />
+    <meta name="description" content="@yield('description','Dapur_Bee menyediakan berbagai macam produk makanan. ')">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="{{ asset('assets') }}/vendor/bootstrap/css/bootstrap.min.css">
-    <link href="{{ asset('assets') }}/vendor/fonts/circular-std/style.css" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('assets') }}/libs/css/style.css">
-    <link rel="stylesheet" href="{{ asset('assets') }}/vendor/fonts/fontawesome/css/fontawesome-all.css">
-    <link rel="stylesheet" href="{{ asset('assets') }}/vendor/datatables/css/dataTables.bootstrap4.css">
-    <title>@yield('title','Admin')</title>
-    @stack('style')
-    @livewireStyles
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('images/logo.jpeg') }}">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ url('/') }}">
+    <meta property="og:title" content="@yield('title','Dapur_Bee')">
+    <meta property="og:description" content="@yield('description','Dapur_Bee menyediakan berbagai macam produk makanan. ')">
+    <meta property="og:image" content="@yield('img-meta',asset('images/logo.jpeg'))">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="{{ url('/') }}">
+    <meta property="twitter:title" content="@yield('title','Dapur_Bee')">
+    <meta property="twitter:description" content="@yield('description','Dapur_Bee menyediakan berbagai macam produk makanan. ')">
+    <meta property="twitter:image" content="@yield('img-meta',asset('images/logo.jpeg'))">
+
+    <!-- CSS ============================================ -->
+
+    <!-- Vendor CSS (Bootstrap & Icon Font) -->
+    <link rel="stylesheet" href="{{ asset('/') }}assets/css/vendor/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ asset('/') }}assets/css/vendor/font-awesome-pro.min.css">
+    <link rel="stylesheet" href="{{ asset('/') }}assets/css/vendor/themify-icons.css">
+    <link rel="stylesheet" href="{{ asset('/') }}assets/css/vendor/customFonts.css">
+
+    <!-- Plugins CSS (All Plugins Files) -->
+    <link rel="stylesheet" href="{{ asset('/') }}assets/css/plugins/select2.min.css">
+    <link rel="stylesheet" href="{{ asset('/') }}assets/css/plugins/perfect-scrollbar.css">
+    <link rel="stylesheet" href="{{ asset('/') }}assets/css/plugins/swiper.min.css">
+    <link rel="stylesheet" href="{{ asset('/') }}assets/css/plugins/nice-select.css">
+    <link rel="stylesheet" href="{{ asset('/') }}assets/css/plugins/ion.rangeSlider.min.css">
+    <link rel="stylesheet" href="{{ asset('/') }}assets/css/plugins/photoswipe.css">
+    <link rel="stylesheet" href="{{ asset('/') }}assets/css/plugins/photoswipe-default-skin.css">
+    <link rel="stylesheet" href="{{ asset('/') }}assets/css/plugins/magnific-popup.css">
+    <link rel="stylesheet" href="{{ asset('/') }}assets/css/plugins/slick.css">
+    <link href="https://cdn.datatables.net/1.13.7/css/dataTables.bootstrap5.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- Main Style CSS -->
+    <!-- <link rel="stylesheet" href="{{ asset('/') }}assets/css/style.css"> -->
+
+    <!-- Use the minified version files listed below for better performance and remove the files listed above -->
+    <!-- <link rel="stylesheet" href="{{ asset('/') }}assets/css/vendor/vendor.min.css">
+    <link rel="stylesheet" href="{{ asset('/') }}assets/css/plugins/plugins.min.css"> -->
+    <link rel="stylesheet" href="{{ asset('/') }}assets/css/style.min.css">
+    @yield('style')
+    <style>
+        .offcanvas-menu>ul>li>a {
+            display: block;
+            padding: 8px 24px 8px 0;
+            text-transform: uppercase;
+            color: #edc82e;
+        }
+        .offcanvas-social a{
+            background: transparent;
+            border: 1px solid #edc82e;
+            color: #edc82e;
+        }
+    </style>
 </head>
 
-<body>
-    <!-- ============================================================== -->
-    <!-- main wrapper -->
-    <!-- ============================================================== -->
-    <div class="dashboard-main-wrapper">
-        <!-- ============================================================== -->
-        <!-- navbar -->
-        <!-- ============================================================== -->
-        <div class="dashboard-header">
-            <nav class="navbar navbar-expand-lg bg-white fixed-top">
-                <a class="navbar-brand" href="#">{{ Auth::user()->name }}</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse " id="navbarSupportedContent">
-                    <ul class="navbar-nav ml-auto navbar-right-top">
-                        <li class="nav-item">
-                            <div id="custom-search" class="top-search-bar">
-                                <input class="form-control" type="text" placeholder="Search..">
-                            </div>
-                        </li>
-                        <li class="nav-item dropdown notification">
-                            <a class="nav-link nav-icons" href="#" id="navbarDropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-fw fa-bell"></i> <span class="indicator"></span></a>
-                            <ul class="dropdown-menu dropdown-menu-right notification-dropdown">
-                                <li>
-                                    <div class="notification-title"> Notification</div>
-                                    <div class="notification-list">
-                                        <div class="list-group">
-                                            <a href="#" class="list-group-item list-group-item-action active">
-                                                <div class="notification-info">
-                                                    <div class="notification-list-user-img"><img src="{{ asset('assets') }}/images/avatar-2.jpg" alt="" class="user-avatar-md rounded-circle"></div>
-                                                    <div class="notification-list-user-block"><span class="notification-list-user-name">Jeremy Rakestraw</span>accepted your invitation to join the team.
-                                                        <div class="notification-date">2 min ago</div>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                            <a href="#" class="list-group-item list-group-item-action">
-                                                <div class="notification-info">
-                                                    <div class="notification-list-user-img"><img src="{{ asset('assets') }}/images/avatar-3.jpg" alt="" class="user-avatar-md rounded-circle"></div>
-                                                    <div class="notification-list-user-block"><span class="notification-list-user-name">John Abraham </span>is now following you
-                                                        <div class="notification-date">2 days ago</div>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                            <a href="#" class="list-group-item list-group-item-action">
-                                                <div class="notification-info">
-                                                    <div class="notification-list-user-img"><img src="{{ asset('assets') }}/images/avatar-4.jpg" alt="" class="user-avatar-md rounded-circle"></div>
-                                                    <div class="notification-list-user-block"><span class="notification-list-user-name">Monaan Pechi</span> is watching your main repository
-                                                        <div class="notification-date">2 min ago</div>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                            <a href="#" class="list-group-item list-group-item-action">
-                                                <div class="notification-info">
-                                                    <div class="notification-list-user-img"><img src="{{ asset('assets') }}/images/avatar-5.jpg" alt="" class="user-avatar-md rounded-circle"></div>
-                                                    <div class="notification-list-user-block"><span class="notification-list-user-name">Jessica Caruso</span>accepted your invitation to join the team.
-                                                        <div class="notification-date">2 min ago</div>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="list-footer"> <a href="#">View all notifications</a></div>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="nav-item dropdown connection">
-                            <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="fas fa-fw fa-th"></i> </a>
-                            <ul class="dropdown-menu dropdown-menu-right connection-dropdown">
-                                <li class="connection-list">
-                                    <div class="row">
-                                        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 ">
-                                            <a href="#" class="connection-item"><img src="{{ asset('assets') }}/images/github.png" alt="" > <span>Github</span></a>
-                                        </div>
-                                        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 ">
-                                            <a href="#" class="connection-item"><img src="{{ asset('assets') }}/images/dribbble.png" alt="" > <span>Dribbble</span></a>
-                                        </div>
-                                        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 ">
-                                            <a href="#" class="connection-item"><img src="{{ asset('assets') }}/images/dropbox.png" alt="" > <span>Dropbox</span></a>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 ">
-                                            <a href="#" class="connection-item"><img src="{{ asset('assets') }}/images/bitbucket.png" alt=""> <span>Bitbucket</span></a>
-                                        </div>
-                                        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 ">
-                                            <a href="#" class="connection-item"><img src="{{ asset('assets') }}/images/mail_chimp.png" alt="" ><span>Mail chimp</span></a>
-                                        </div>
-                                        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 ">
-                                            <a href="#" class="connection-item"><img src="{{ asset('assets') }}/images/slack.png" alt="" > <span>Slack</span></a>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="conntection-footer"><a href="#">More</a></div>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="nav-item dropdown nav-user">
-                            <a class="nav-link nav-user-img" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="{{ asset('assets') }}/images/avatar-1.jpg" alt="" class="user-avatar-md rounded-circle"></a>
-                            <div class="dropdown-menu dropdown-menu-right nav-user-dropdown" aria-labelledby="navbarDropdownMenuLink2">
-                                <div class="nav-user-info">
-                                    <h5 class="mb-0 text-white nav-user-name">{{ Auth::user()->name }} </h5>
-                                    <span class="status"></span><span class="ml-2">{{ Auth::user()->role->name }}</span>
-                                </div>
-                                <a href="{{ route('user.edit',Auth::id()) }}" class="dropdown-item"><i class="fas fa-user mr-2"></i>Profile</a>
-                                <form action="{{ route('logout') }}" method="post">
-                                    @csrf
-                                    <button class="dropdown-item" type="submit" onclick="return confirm('are you sure?')"><i class="fas fa-power-off mr-2"></i>Logout</button>
-                                </form>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-        </div>
-        <!-- ============================================================== -->
-        <!-- end navbar -->
-        <!-- ============================================================== -->
-        <!-- ============================================================== -->
-        <!-- left sidebar -->
-        <!-- ============================================================== -->
-        <div class="nav-left-sidebar sidebar-dark">
-            <div class="menu-list">
-                <nav class="navbar navbar-expand-lg navbar-light">
-                    <a class="d-xl-none d-lg-none" href="#">Dashboard</a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarNav">
-                        @include('layouts.admin.sidebar')
-                    </div>
-                </nav>
+<body class="offside-header-left">
+
+   <!-- OffCanvas Mobile Menu Start -->
+    <div class="offcanvas offcanvas-header" style="background-color: black">
+        <div class="inner customScroll">
+            <div class="offcanvas-logo">
+                <a href="{{ url('/') }}" class="d-flex justify-content-center"><img src="{{ asset('images/logo.png') }}" alt="dapur_bee" style="height: 120px"></a>
             </div>
-        </div>
-        <!-- ============================================================== -->
-        <!-- end left sidebar -->
-        <!-- ============================================================== -->
-        <!-- ============================================================== -->
-        <!-- wrapper  -->
-        <!-- ============================================================== -->
-        <div class="dashboard-wrapper">
-            <div class="dashboard-ecommerce">
-                <div class="container-fluid dashboard-content">
-                    @if (session('success'))
-                    <div class="alert alert-success alert-dismissible fade show my-2" role="alert">
-                        <strong>Success!</strong> {{ session('success') }}
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
+            <div class="offcanvas-buttons">
+                <div class="header-tools px-2">
+                    <div class="header-login">
+                        @if (Auth::check())
+                            <div class="dropdown">
+                                <button class="btn btn-light btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false" style="background: transparent; border:1px solid #edc82e; color:#edc82e">
+                                    {{ Auth::check() ? Auth::user()->name : 'Login' }} <i class="fal fa-user"></i>
+                                </button>
+                                @auth
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                        <a class="dropdown-item" href="{{ route('page.profile') }}">Akun Saya</a>
+                                    </div>
+                                @endauth
+                            </div>
+                        @else
+                            <a href="{{ route('page.profile') }}" class="btn btn-light btn-sm" style="background: transparent; border:1px solid #edc82e; color:#edc82e">Login <i class="fal fa-user"></i></a>
+                        @endif
                     </div>
-                    @endif
-                    @if (session('danger'))
-                    <div class="alert alert-danger alert-dismissible fade show my-2" role="alert">
-                        <strong>Gagal!</strong> {{ session('danger') }}
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    @endif
-                    @if ($errors->any())
-                    <div class="alert alert-danger my-2 fade show">
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                                <li class="text-danger fw-bold">{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                    @endif
-                    @yield('content')
                 </div>
             </div>
-            <!-- ============================================================== -->
-            <!-- footer -->
-            <!-- ============================================================== -->
-            {{-- <div class="footer">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
-                            Copyright © {{ date('Y') }} Concept. All rights reserved. Dashboard by <a href="https://colorlib.com/wp/">Colorlib</a>.
-                        </div>
-                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
-                            <div class="text-md-right footer-links d-none d-sm-block">
-                                <a href="javascript: void(0);">About</a>
-                                <a href="javascript: void(0);">Support</a>
-                                <a href="javascript: void(0);">Contact Us</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div> --}}
-            <!-- ============================================================== -->
-            <!-- end footer -->
-            <!-- ============================================================== -->
+            <div class="offcanvas-menu">
+                <ul>
+                    <li><a href="{{ route('product.index') }}"><span class="menu-text">Master Produk</span></a></li>
+                    <li><a href="{{ route('product-category.index') }}"><span class="menu-text">Master Kategori</span></a>
+                    <li><a href="{{ route('cart.index') }}"><span class="menu-text">Master Keranjang</span></a>
+                    <li><a href="{{ route('transaction.index') }}"><span class="menu-text">Master Transaksi</span></a>
+                    <li><a href="{{ route('user.index') }}"><span class="menu-text">Master Pengguna</span></a>
+                    <li><a href="{{ route('setting.edit',1) }}"><span class="menu-text">Pengaturan</span></a>
+                </ul>
+            </div>
+            <div class="offcanvas-social">
+
+            </div>
+            {{-- @if ($setting->whatsapp)
+            <a href="https://wa.me/{{ $setting->whatsapp }}" class="btn btn-success btn-outline-hover-success mt-5 btn-sm"><i class="fa fa-phone-alt"></i> Whatsapp</a>
+            @endif --}}
+            @auth
+                <span class="mt-2 text-white">Selamat datang, {{ Auth::user()->name }} 😊</span>
+                <form action="{{ route('logout') }}" method="post">
+                    @csrf
+                    <button type="submit" onclick="return confirm('are you sure?')" class="btn btn-danger btn-outline-hover-danger mt-3 w-100 btn-sm"><i class="fa fa-door-closed"></i> Logout</button>
+                </form>
+            @endauth
         </div>
-        <!-- ============================================================== -->
-        <!-- end wrapper  -->
-        <!-- ============================================================== -->
     </div>
-    <!-- ============================================================== -->
-    <!-- end main wrapper  -->
-    <!-- ============================================================== -->
-    <!-- Optional JavaScript -->
-    <!-- jquery 3.3.1 -->
-    <script src="{{ asset('assets') }}/vendor/jquery/jquery-3.3.1.min.js"></script>
-    <!-- bootstap bundle js -->
-    <script src="{{ asset('assets') }}/vendor/bootstrap/js/bootstrap.bundle.js"></script>
-    <!-- slimscroll js -->
-    <script src="{{ asset('assets') }}/vendor/slimscroll/jquery.slimscroll.js"></script>
-    <!-- main js -->
-    <script src="{{ asset('assets') }}/libs/js/main-js.js"></script>
-    <!-- chart chartist js -->
-    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-    <script src="{{ asset('assets') }}/vendor/datatables/js/dataTables.bootstrap4.min.js"></script>
+   <!-- OffCanvas Mobile Menu End -->
+
+   <!-- OffCanvas Search Start -->
+   <div id="offcanvas-mobile-menu" class="offcanvas offcanvas-mobile-menu">
+           <div class="inner customScroll">
+               <div class="offcanvas-logo">
+                   <a href="{{ url('/') }}" class="d-flex justify-content-center"><img src="{{ asset('images/logo.png') }}" alt="dapur_bee" style="height: 120px"></a>
+               </div>
+               <div class="offcanvas-buttons">
+                   <div class="header-tools px-2">
+                       <div class="header-login">
+                           @if (Auth::check())
+                               <div class="dropdown">
+                                   <button class="btn btn-light btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                                       {{ Auth::check() ?Auth::user()->name : 'Login' }} <i class="fal fa-user"></i>
+                                   </button>
+                                   @auth
+                                       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                           <a class="dropdown-item" href="{{ route('page.profile') }}">Akun Saya</a>
+                                           {{-- <a class="dropdown-item" href="{{ route('page.pesanan') }}">Pesanan Saya</a> --}}
+                                       </div>
+                                   @endauth
+                               </div>
+                           @else
+                               <a href="{{ route('page.profile') }}" class="btn btn-light btn-sm" style="background: transparent; border:1px solid #edc82e; color:#edc82e">Login <i class="fal fa-user"></i></a>
+                           @endif
+                       </div>
+                       <div class="header-cart">
+                           {{-- <a href="{{ route('page.carts') }}" class="mt-2"><span class="cart-count">{{ $cart_count }}</span><i class="fal fa-shopping-cart"></i></a> --}}
+                       </div>
+                   </div>
+               </div>
+               <div class="offcanvas-menu">
+                   <ul>
+                       <li><a href="{{ route('product.index') }}"><span class="menu-text">Master Produk</span></a></li>
+                       <li><a href="{{ route('product-category.index') }}"><span class="menu-text">Master Kategori</span></a>
+                       <li><a href="{{ route('cart.index') }}"><span class="menu-text">Master Keranjang</span></a>
+                       <li><a href="{{ route('transaction.index') }}"><span class="menu-text">Master Transaksi</span></a>
+                       <li><a href="{{ route('user.index') }}"><span class="menu-text">Master Pengguna</span></a>
+                       <li><a href="{{ route('setting.edit',1) }}"><span class="menu-text">Pengaturan</span></a>
+                   </ul>
+               </div>
+               <div class="offcanvas-social">
+                   {{-- @if ($setting->facebook)
+                   <a href="{{ $setting->facebook }}"><i class="fab fa-facebook-f"></i></a>
+                   @endif
+                   @if ($setting->twitter)
+                   <a href="{{ $setting->twitter }}"><i class="fab fa-twitter"></i></a>
+                   @endif
+                   @if ($setting->instagram)
+                   <a href="{{ $setting->instagram }}"><i class="fab fa-instagram"></i></a>
+                   @endif
+                   @if ($setting->youtube)
+                   <a href="{{ $setting->youtube }}"><i class="fab fa-youtube"></i></a>
+                   @endif --}}
+               </div>
+               {{-- @if ($setting->whatsapp)
+                   <a href="https://wa.me/{{ $setting->whatsapp }}" class="btn btn-success btn-outline-hover-success mt-5 btn-sm"><i class="fa fa-phone-alt"></i> Whatsapp</a>
+               @endif --}}
+               @auth
+                   <span>{{ Auth::user()->name }}</span>
+                   <form action="{{ route('logout') }}" method="post">
+                       @csrf
+                       <button type="submit" onclick="return confirm('are you sure?')" class="btn btn-danger btn-outline-hover-danger mt-3 w-100 btn-sm"><i class="fa fa-door-closed"></i> Logout</button>
+                   </form>
+               @endauth
+           </div>
+   </div>
+   <!-- OffCanvas Search End -->
+
+   <div class="offcanvas-overlay"></div>
+
+   <!-- Modal -->
+   <div class="quickViewModal modal fade" id="quickViewModal">
+       <div class="modal-dialog modal-dialog-centered">
+           <div class="modal-content">
+               <button class="close" data-bs-dismiss="modal">&times;</button>
+               <form action="{{ route('customer.store') }}" method="POST">
+                   @csrf
+                   <input type="hidden" name="ip_address" value="{{ request()->ip() }}">
+                   <div class="col-12 mb-3">
+                       <label for="name">Name</label>
+                       <input name="name" type="text" value="{{ $customer->name ?? '' }}">
+                   </div>
+                   <div class="col-12 mb-3">
+                       <label for="phone">Phone</label>
+                       <input name="phone" type="text" value="{{ $customer->phone ?? '' }}">
+                   </div>
+                   <div class="col-12 mb-3">
+                       <label for="address">Address</label>
+                       <input name="address" type="text" value="{{ $customer->address ?? '' }}">
+                   </div>
+                   <button type="submit" class="btn btn-dark btn-outline-hover-dark"><i class="fal fa-save"></i> Save</button>
+               </form>
+           </div>
+       </div>
+   </div>
+
+    {{-- @include('layouts.user.partials.mobile-header',['customer'=>$customer]) --}}
+
+    <x-message></x-message>
+    @yield('toolbar')
+    @yield('content')
+    {{-- @include('layouts.user.partials.footer') --}}
+
+    <!-- JS ============================================ -->
+
+    <!-- Vendors JS -->
+    <script src="{{ asset('/') }}assets/js/vendor/modernizr-3.6.0.min.js"></script>
+    <script src="{{ asset('/') }}assets/js/vendor/jquery-3.4.1.min.js"></script>
+    <script src="{{ asset('/') }}assets/js/vendor/jquery-migrate-3.1.0.min.js"></script>
+    <script src="{{ asset('/') }}assets/js/vendor/bootstrap.bundle.min.js"></script>
+
+    <!-- Plugins JS -->
+    <script src="{{ asset('/') }}assets/js/plugins/select2.min.js"></script>
+    <script src="{{ asset('/') }}assets/js/plugins/jquery.nice-select.min.js"></script>
+    <script src="{{ asset('/') }}assets/js/plugins/perfect-scrollbar.min.js"></script>
+    <script src="{{ asset('/') }}assets/js/plugins/swiper.min.js"></script>
+    <script src="{{ asset('/') }}assets/js/plugins/slick.min.js"></script>
+    <script src="{{ asset('/') }}assets/js/plugins/mo.min.js"></script>
+    <script src="{{ asset('/') }}assets/js/plugins/jquery.ajaxchimp.min.js"></script>
+    <script src="{{ asset('/') }}assets/js/plugins/jquery.countdown.min.js"></script>
+    <script src="{{ asset('/') }}assets/js/plugins/imagesloaded.pkgd.min.js"></script>
+    <script src="{{ asset('/') }}assets/js/plugins/isotope.pkgd.min.js"></script>
+    <script src="{{ asset('/') }}assets/js/plugins/jquery.matchHeight-min.js"></script>
+    <script src="{{ asset('/') }}assets/js/plugins/ion.rangeSlider.min.js"></script>
+    <script src="{{ asset('/') }}assets/js/plugins/photoswipe.min.js"></script>
+    <script src="{{ asset('/') }}assets/js/plugins/photoswipe-ui-default.min.js"></script>
+    <script src="{{ asset('/') }}assets/js/plugins/jquery.zoom.min.js"></script>
+    <script src="{{ asset('/') }}assets/js/plugins/ResizeSensor.js"></script>
+    <script src="{{ asset('/') }}assets/js/plugins/jquery.sticky-sidebar.min.js"></script>
+    <script src="{{ asset('/') }}assets/js/plugins/product360.js"></script>
+    <script src="{{ asset('/') }}assets/js/plugins/jquery.magnific-popup.min.js"></script>
+    <script src="{{ asset('/') }}assets/js/plugins/jquery.scrollUp.min.js"></script>
+    <script src="{{ asset('/') }}assets/js/plugins/scrollax.min.js"></script>
+    <script src="{{ asset('/') }}assets/js/plugins/instafeed.min.js"></script>
+
+    <!-- Main Activation JS -->
+    <script src="{{ asset('/') }}assets/js/main.js"></script>
+    <script src="{{ asset('assets/plugins/custom/datatables/datatables.bundle.js') }}"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.3/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.print.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.colVis.min.js"></script>
     @stack('script')
-    @livewireScripts
+    @yield('script')
 </body>
 
 </html>

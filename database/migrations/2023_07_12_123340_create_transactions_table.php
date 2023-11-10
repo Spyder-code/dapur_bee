@@ -33,6 +33,8 @@ class CreateTransactionsTable extends Migration
             $table->double('received')->default(0);
             $table->double('payout')->default(0);
             $table->boolean('is_paid')->default(0);
+            $table->string('payment_method')->nullable();
+            $table->string('payment_file')->nullable();
             $table->foreignId('payment_status_id')->default(4)->constrained('payment_statuses');
             $table->string('token')->nullable();
             $table->enum('status',['verify','process','delivery','complete'])->default('verify');
