@@ -119,7 +119,6 @@
             @empty
             <div class="row align-items-center mt-5">
                 <div class="home5-slide1-content col-12 learts-mb-50">
-                    <span class="sub-title">Flower House</span>
                     <h2 class="title">KERANJANG KOSONG</h2>
                 </div>
             </div>
