@@ -52,8 +52,10 @@ class TransactionController extends Controller
                 }
             }
         }
-        if($data['payment_method']=='cod'){
-            $data['is_paid'] = 0;
+        if(!empty($data['payment_method'])){
+            if($data['payment_method']=='cod'){
+                $data['is_paid'] = 0;
+            }
         }
         $data['user_id'] = Auth::id();
         $date = date('Ymd');
