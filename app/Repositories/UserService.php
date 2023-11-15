@@ -24,7 +24,7 @@ class UserService extends Repository
                 return $data->role->name;
             })
             ->addColumn('action', function ($data) {
-                return '<a href="' . route('user.edit', $data->id) . '" class="btn btn-primary btn-sm"><i class="fas fa-pen-alt"></i></a>
+                return '<a href="' . route('user.edit', $data->id) . '" class="btn btn-info btn-sm"><i class="fas fa-pen-alt"></i></a>
                         <form action="' . route('user.destroy', $data->id) . '" method="POST" class="d-inline">
                             <input type="hidden" name="_method" value="DELETE">
                             <input type="hidden" name="_token" value="' . csrf_token() . '">

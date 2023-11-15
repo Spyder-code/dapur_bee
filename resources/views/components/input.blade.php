@@ -8,7 +8,7 @@
         <!--end::Label-->
         <!--begin::Input-->
         @if ($type=='textarea')
-            <textarea class="form-control form-control-solid" {{  !empty($required)?$required?'required':'':''  }} id="{{ $id??$name }}" name="{{ $name }}" {{ !empty($attr)?implode(' ', $attr) : '' }}>{{ $value ?? '' }}</textarea>
+            <textarea class="form-control shadow-none form-control-solid" {{  !empty($required)?$required?'required':'':''  }} id="{{ $id??$name }}" name="{{ $name }}" {{ !empty($attr)?implode(' ', $attr) : '' }}>{{ $value ?? '' }}</textarea>
         @else
             <input type="{{ $type }}" id="{{ $id??$name }}" {{  !empty($required)?$required?'required':'':''  }} class="form-control form-control-solid" name="{{ $name }}" value="{{ $value ?? old($name) }}" {{ !empty($attr)?implode(' ', $attr) : '' }} />
         @endif

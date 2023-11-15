@@ -1,31 +1,31 @@
 @extends('layouts.admin.admin')
 @section('title', 'Produk')
-@section('toolbar')
-    @php
-        $items = ['<a href="'.route('product.create').'" data-theme="light" class="btn btn-success">Tambah Produk</a>'];
-    @endphp
-    <x-toolbar :title="'List Produk'" :items="$items"></x-toolbar>
-@endsection
 @section('content')
-<div class="content flex-row-fluid" id="kt_content">
-    <div class="card">
-        <div class="card-body py-4">
-            <x-message></x-message>
-            <table class="table align-middle table-row-dashed fs-6 gy-5">
-                <thead>
-                    <tr class="text-start text-muted fw-bold fs-7 text-uppercase gs-0">
-                        <th class="min-w-125px">ID</th>
-                        <th class="min-w-125px">Nama Produk</th>
-                        <th class="min-w-125px">Deskripsi</th>
-                        <th class="min-w-125px">Harga</th>
-                        <th class="min-w-125px">Foto</th>
-                        <th class="min-w-125px">Stock</th>
-                        <th class="min-w-125px">Dibuat Oleh</th>
-                        <th class="min-w-125px">Diupdate Oleh</th>
-                        <th class="min-w-125px">Aksi</th>
-                    </tr>
-                </thead>
-            </table>
+<div class="container mt-4">
+    <div class="content flex-row-fluid" id="kt_content">
+        <div class="card">
+            <div class="card-body py-4">
+                <div class="d-flex justify-content-between">
+                    <h4>List Produk</h4>
+                    <a href="{{route('product.create')}}" data-theme="light" class="btn btn-sm btn-success">Tambah Produk</a>
+                </div>
+                <x-message></x-message>
+                <table class="table align-middle table-row-dashed fs-6 gy-5">
+                    <thead>
+                        <tr class="text-start text-muted fw-bold fs-7 text-uppercase gs-0">
+                            <th class="min-w-125px">ID</th>
+                            <th class="min-w-125px">Nama Produk</th>
+                            <th class="min-w-125px">Deskripsi</th>
+                            <th class="min-w-125px">Harga</th>
+                            <th class="min-w-125px">Foto</th>
+                            <th class="min-w-125px">Stock</th>
+                            <th class="min-w-125px">Dibuat Oleh</th>
+                            <th class="min-w-125px">Diupdate Oleh</th>
+                            <th class="min-w-125px">Aksi</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
         </div>
     </div>
 </div>

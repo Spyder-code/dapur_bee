@@ -24,7 +24,7 @@
                                 @auth
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                         <a class="dropdown-item" href="{{ route('page.profile') }}">Akun Saya</a>
-                                        <a class="dropdown-item" href="{{ route('page.pesanan') }}">Pesanan Saya</a>
+                                        {{-- <a class="dropdown-item" href="{{ route('page.pesanan') }}">Pesanan Saya</a> --}}
                                     </div>
                                 @endauth
                             </div>
@@ -33,7 +33,7 @@
                         @endif
                     </div>
                     <div class="header-cart">
-                        <a href="{{ route('page.carts') }}" class="mt-2" style="color: #edc82e"><span class="cart-count">{{ $cart_count }}</span><i class="fal fa-shopping-cart"></i></a>
+                        {{-- <a href="{{ route('page.carts') }}" class="mt-2" style="color: #edc82e"><span class="cart-count">{{ $cart_count }}</span><i class="fal fa-shopping-cart"></i></a> --}}
                     </div>
                 </div>
             </div>
@@ -105,7 +105,7 @@
                                     @auth
                                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                             <a class="dropdown-item" href="{{ route('page.profile') }}">Akun Saya</a>
-                                            <a class="dropdown-item" href="{{ route('page.pesanan') }}">Pesanan Saya</a>
+                                            {{-- <a class="dropdown-item" href="{{ route('page.pesanan') }}">Pesanan Saya</a> --}}
                                         </div>
                                     @endauth
                                 </div>

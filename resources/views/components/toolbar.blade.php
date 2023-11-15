@@ -5,7 +5,7 @@
     ]
 @endphp --}}
 <!--begin::Toolbar-->
-<div class="toolbar" id="kt_toolbar">
+<div class="toolbar m-5" id="kt_toolbar">
     <!--begin::Container-->
     <div id="kt_toolbar_container" class="container-xxl d-flex justify-content-between">
         <!--begin::Page title-->

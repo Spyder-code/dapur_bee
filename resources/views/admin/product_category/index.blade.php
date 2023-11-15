@@ -1,30 +1,30 @@
 @extends('layouts.admin.admin')
 @section('title', 'Kategori Produk')
-@section('toolbar')
-    @php
-        $items = ['<a href="'.route('product-category.create').'" data-theme="light" class="btn btn-success">Tambah Kategori</a>'];
-    @endphp
-    <x-toolbar :title="'List Kategori'" :items="$items"></x-toolbar>
-@endsection
 @section('content')
-<div class="content flex-row-fluid" id="kt_content">
-    <div class="card">
-        <div class="card-body py-4">
-            <x-message></x-message>
-            <table class="table align-middle table-row-dashed fs-6 gy-5">
-                <thead>
-                    <tr class="text-start text-muted fw-bold fs-7 text-uppercase gs-0">
-                        <th class="min-w-125px">ID</th>
-                        <th class="min-w-125px">Nama Kategori</th>
-                        <th class="min-w-125px">Icon</th>
-                        <th class="min-w-125px">Slug</th>
-                        <th class="min-w-125px">Deskripsi</th>
-                        <th class="min-w-125px">Dibuat Oleh</th>
-                        <th class="min-w-125px">Diupdate Oleh</th>
-                        <th class="min-w-125px">Aksi</th>
-                    </tr>
-                </thead>
-            </table>
+<div class="container mt-4">
+    <div class="content flex-row-fluid" id="kt_content">
+        <div class="card">
+            <div class="card-body py-4">
+                <div class="d-flex justify-content-between">
+                    <h4>List Kategori</h4>
+                    <a href="{{route('product-category.create')}}" data-theme="light" class="btn btn-sm btn-success">Tambah Kategori</a>
+                </div>
+                <x-message></x-message>
+                <table class="table align-middle table-row-dashed fs-6 gy-5">
+                    <thead>
+                        <tr class="text-start text-muted fw-bold fs-7 text-uppercase gs-0">
+                            <th class="min-w-125px">ID</th>
+                            <th class="min-w-125px">Nama Kategori</th>
+                            <th class="min-w-125px">Icon</th>
+                            <th class="min-w-125px">Slug</th>
+                            <th class="min-w-125px">Deskripsi</th>
+                            <th class="min-w-125px">Dibuat Oleh</th>
+                            <th class="min-w-125px">Diupdate Oleh</th>
+                            <th class="min-w-125px">Aksi</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
         </div>
     </div>
 </div>
@@ -49,11 +49,7 @@
                 { data: 'updated_by', name: 'updated_by' },
                 { data: 'action', name: 'action', orderable: false, searchable: false },
             ],
-            dom: 'Bfrtip',
             responsive: true,
-            buttons: [
-                'copy', 'csv', 'excel', 'pdf', 'print'
-            ]
         });
     } else {
         let table = $('.table').DataTable({

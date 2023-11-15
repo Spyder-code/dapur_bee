@@ -1,29 +1,29 @@
 @extends('layouts.admin.admin')
 @section('title', 'Pengguna')
-@section('toolbar')
-    @php
-        $items = ['<a href="'.route('user.create').'" data-theme="light" class="btn btn-success">Tambah Pengguna</a>'];
-    @endphp
-    <x-toolbar :title="'List Pengguna'" :items="$items"></x-toolbar>
-@endsection
 @section('content')
-<div class="content flex-row-fluid" id="kt_content">
-    <div class="card">
-        <div class="card-body py-4">
-            <x-message></x-message>
-            <table class="table align-middle table-row-dashed fs-6 gy-5">
-                <thead>
-                    <tr class="text-start text-muted fw-bold fs-7 text-uppercase gs-0">
-                        <th class="min-w-125px">ID</th>
-                        <th class="min-w-125px">Nama</th>
-                        <th class="min-w-125px">Email</th>
-                        <th class="min-w-125px">Role</th>
-                        <th class="min-w-125px">No. HP</th>
-                        <th class="min-w-125px">Alamat</th>
-                        <th class="min-w-125px">Aksi</th>
-                    </tr>
-                </thead>
-            </table>
+<div class="container mt-4">
+    <div class="content flex-row-fluid" id="kt_content">
+        <div class="card">
+            <div class="card-body py-4">
+                <div class="d-flex justify-content-between">
+                    <h4>List Pengguna</h4>
+                    <a href="{{route('user.create')}}" data-theme="light" class="btn btn-sm btn-success">Tambah Pengguna</a>
+                </div>
+                <x-message></x-message>
+                <table class="table align-middle table-row-dashed fs-6 gy-5">
+                    <thead>
+                        <tr class="text-start text-muted fw-bold fs-7 text-uppercase gs-0">
+                            <th class="min-w-125px">ID</th>
+                            <th class="min-w-125px">Nama</th>
+                            <th class="min-w-125px">Email</th>
+                            <th class="min-w-125px">Role</th>
+                            <th class="min-w-125px">No. HP</th>
+                            <th class="min-w-125px">Alamat</th>
+                            <th class="min-w-125px">Aksi</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
         </div>
     </div>
 </div>
@@ -49,11 +49,7 @@
             { data: 'address', name: 'address' },
             { data: 'action', name: 'action', orderable: false, searchable: false },
         ],
-        dom: 'Bfrtip',
         responsive: true,
-        buttons: [
-            'copy', 'csv', 'excel', 'pdf', 'print'
-        ]
     });
 </script>
 @endsection
