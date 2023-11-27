@@ -53,6 +53,7 @@
     <link rel="stylesheet" href="{{ asset('/') }}assets/css/style.min.css">
     @yield('style')
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Playfair+Display&display=swap');
         .offcanvas-menu>ul>li>a {
             display: block;
             padding: 8px 24px 8px 0;
@@ -63,6 +64,24 @@
             background: transparent;
             border: 1px solid #edc82e;
             color: #edc82e;
+        }
+        .sub-title{
+            font-family: 'Dancing Script', cursive !important;
+            font-family: 'Playfair Display', serif !important;
+            font-size: 36pt !important;
+            font-weight: bold !important;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px !important;
+            padding: 60px 0px;
+            text-shadow: 2px -2px 9px rgba(0,0,0,0.6);
+        }
+        #banner1{
+            background-image:url('https://img.freepik.com/free-photo/order-food-table-empty-background_1253-744.jpg');
+            background-size: cover;
+            background-repeat:no-repeat;
+            background-position: 0 -100px;
+        }
+        .ts{
+            text-shadow: 2px -2px 9px rgba(0,0,0,0.6) !important;
         }
     </style>
 </head>
