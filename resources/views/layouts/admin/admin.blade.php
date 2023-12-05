@@ -65,6 +65,10 @@
             border: 1px solid #edc82e;
             color: #edc82e;
         }
+        p, span, h1, h2, h3, h4, div, a, button {
+            font-family: 'Dancing Script', cursive !important;
+            font-family: 'Playfair Display', serif !important;
+        }
     </style>
 </head>
 

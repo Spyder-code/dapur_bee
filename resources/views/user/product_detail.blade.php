@@ -117,7 +117,7 @@
                                     <img src="{{ asset($item->image) }}" alt="{{ $item->name }}">
                                     <img class="image-hover " src="{{ asset($item->image) }}" alt="{{ $item->name }}">
                                 </a>
-                                <a href="wishlist.html" class="add-to-wishlist hintT-left" data-hint="Add to wishlist"><i class="far fa-heart"></i></a>
+                                {{-- <a href="wishlist.html" class="add-to-wishlist hintT-left" data-hint="Add to wishlist"><i class="far fa-heart"></i></a> --}}
                             </div>
                             <div class="product-info">
                                 <h6 class="title"><a href="{{ route('page.product.detail',$item->slug) }}">{{ $item->name }}</a></h6>
@@ -126,8 +126,7 @@
                                     <span class="new">Rp. {{ number_format($item->price) }}</span>
                                 </span>
                                 <div class="product-buttons">
-                                    <a href="{{ route('page.product.detail',$item->slug) }}" class="product-button hintT-top" data-hint="Detail"><i class="fal fa-search"></i></a>
-                                    <a href="#" class="product-button hintT-top" data-hint="Add to Cart"><i class="fal fa-shopping-cart"></i></a>
+                                    <a href="{{ route('page.product.detail',$item->slug) }}" class="product-button hintT-top" data-hint="Detail"><i class="fal fa-shopping-cart"></i></a>
                                 </div>
                             </div>
                         </div>

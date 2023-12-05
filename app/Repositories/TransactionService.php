@@ -53,6 +53,16 @@ class TransactionService extends Repository
             ->addColumn('note', function($data){
                 return explode(',',json_encode($data->transaction_details()->pluck('note')));
             })
+            ->addColumn('qty', function($data){
+                return $data->transaction_details()->sum('qty');
+            })
+            ->addColumn('products', function($data){
+                $name = '';
+                foreach ($data->transaction_details as $idx => $item) {
+                    $name .= $item->product->name ? $item->product->name.',' : '';
+                }
+                return $name;
+            })
             ->addColumn('action', function ($data) {
                 return '<a href="' . route('transaction.edit', $data->id) . '" class="btn btn-info btn-sm"><i class="fas fa-pen-alt"></i></a>
                         <form action="' . route('transaction.destroy', $data->id) . '" method="POST" class="d-inline">

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cart;
+use App\Models\Product;
 use App\Models\Transaction;
 use App\Models\TransactionDetail;
 use App\Repositories\TransactionService;
@@ -118,12 +119,30 @@ class TransactionController extends Controller
             if($request->status){
                 if($request->status=='complete'){
                     $data['is_paid'] = 1;
+                    foreach ($transaction->transaction_details as $idx => $item) {
+                        dd($item);
+                        $product = Product::find($item->product_id);
+                        $product->update([
+                            'stock' => $product->stock - $item->qty
+                        ]);
+                    }
                 }
             }
 
             $transaction->update($data);
             return back()->with('success','Transaction has success updated');
         }else{
+            if($request->status){
+                if($request->status=='complete'){
+                    $data['is_paid'] = 1;
+                    foreach ($transaction->transaction_details as $idx => $item) {
+                        $product = Product::find($item->product_id);
+                        $product->update([
+                            'stock' => $product->stock - $item->qty
+                        ]);
+                    }
+                }
+            }
             $this->transactionService->update($request->all(),$transaction->id);
             return redirect()->route('transaction.index')->with('success','Transaction has success updated');
         }

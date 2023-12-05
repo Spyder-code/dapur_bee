@@ -83,6 +83,10 @@
         .ts{
             text-shadow: 2px -2px 9px rgba(0,0,0,0.6) !important;
         }
+        p, span, h1, h2, h3, h4, div, a, button {
+            font-family: 'Dancing Script', cursive !important;
+            font-family: 'Playfair Display', serif !important;
+        }
     </style>
 </head>
 

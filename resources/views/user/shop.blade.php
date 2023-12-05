@@ -55,8 +55,7 @@
                                         Rp. {{ number_format($product->price) }}
                                     </span>
                                     <div class="product-buttons">
-                                        <a href="{{ route('page.product.detail',$product->slug) }}" class="product-button hintT-top" data-hint="Detail"><i class="fal fa-search"></i></a>
-                                        <button type="button" onclick="addCart({{ $product->id }})" style="border:none" class="product-button hintT-top" data-hint="Add to Cart"><i class="fal fa-shopping-cart"></i></button>
+                                        <a href="{{ route('page.product.detail',$product->slug) }}" class="product-button hintT-top" data-hint="Detail"><i class="fal fa-shopping-cart"></i></a>
                                     </div>
                                 </div>
                             </div>
