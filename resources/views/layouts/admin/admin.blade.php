@@ -120,7 +120,7 @@
                 <span class="mt-2 text-white">Selamat datang, {{ Auth::user()->name }} 😊</span>
                 <form action="{{ route('logout') }}" method="post">
                     @csrf
-                    <button type="submit" onclick="return confirm('are you sure?')" class="btn btn-danger btn-outline-hover-danger mt-3 w-100 btn-sm"><i class="fa fa-door-closed"></i> Logout</button>
+                    <button type="submit" onclick="return confirm('are you sure?')" class="btn btn-danger btn-outline-hover-danger mt-3 w-100 btn-sm"><i class="fa fa-door-closed"></i> Keluar</button>
                 </form>
             @endauth
         </div>
@@ -188,7 +188,7 @@
                    <span>{{ Auth::user()->name }}</span>
                    <form action="{{ route('logout') }}" method="post">
                        @csrf
-                       <button type="submit" onclick="return confirm('are you sure?')" class="btn btn-danger btn-outline-hover-danger mt-3 w-100 btn-sm"><i class="fa fa-door-closed"></i> Logout</button>
+                       <button type="submit" onclick="return confirm('are you sure?')" class="btn btn-danger btn-outline-hover-danger mt-3 w-100 btn-sm"><i class="fa fa-door-closed"></i> Keluar</button>
                    </form>
                @endauth
            </div>

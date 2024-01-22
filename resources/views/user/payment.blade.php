@@ -25,15 +25,19 @@
                                     <td>Rp. {{ number_format($cart->qty * $cart->product->price) }}</td>
                                 </tr>
                                 @endforeach
-                                <tr>
+                                {{-- <tr>
                                     <td>{{ $idx + 2 }}</td>
                                     <td>Ongkos Kirim</td>
                                     <td>Rp. {{ number_format($transaction->expedition_price) }}</td>
                                     <td>{{ $transaction->distance }} Km</td>
                                     <td>Rp. {{ number_format($transaction->expedition_price) }}</td>
-                                </tr>
+                                </tr> --}}
                             </tbody>
                             <tfoot>
+                                <tr>
+                                    <td colspan="4">Ongkos Kirim ({{ $transaction->distance }} Km)</td>
+                                    <td>Rp. {{ number_format($transaction->expedition_price) }}</td>
+                                </tr>
                                 <tr>
                                     <td colspan="4"><b>TOTAL</b></td>
                                     <td><b>Rp. {{ number_format($transaction->total) }}</b></td>

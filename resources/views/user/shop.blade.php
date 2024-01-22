@@ -43,9 +43,9 @@
                         <div class="grid-item col-sm col-6 {{ $product->productCategory->slug }}">
                             <div class="product">
                                 <div class="product-thumb">
-                                    <a href="{{ route('page.product.detail',$product->slug) }}" class="image">
-                                        <img src="{{ asset($product->image) }}" alt="Product Image">
-                                        <img class="image-hover" src="{{ asset($product->image) }}" alt="Product Image">
+                                    <a href="{{ route('page.product.detail',$product->slug) }}" class="image" style="height:190px">
+                                        <img src="{{ asset($product->image) }}" alt="Product Image" class="img-fluid" style="height: 190px;">
+                                        <img class="image-hover" src="{{ asset($product->image) }}" style="height: 190px;" alt="Product Image">
                                     </a>
                                     {{-- <a href="wishlist.html" class="add-to-wishlist hintT-left" data-hint="Add to wishlist"><i class="far fa-heart"></i></a> --}}
                                 </div>

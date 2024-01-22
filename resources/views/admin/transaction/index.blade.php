@@ -25,8 +25,8 @@
                                 <label>Status</label>
                                 <select name="status" id="status" class="form-select" style="width: 150px">
                                     <option {{ $status=='all'?'selected':'' }} value="all">Semua</option>
-                                    <option {{ $status=='verify'?'selected':'' }} value="verify">Verifikasi</option>
-                                    <option {{ $status=='process'?'selected':'' }} value="process">Prosess</option>
+                                    <option {{ $status=='verify'?'selected':'' }} value="verify">Menunggu Verifikasi</option>
+                                    <option {{ $status=='process'?'selected':'' }} value="process">Sedang di Proses</option>
                                     <option {{ $status=='delivery'?'selected':'' }} value="delivery">Diantar</option>
                                     <option {{ $status=='complete'?'selected':'' }} value="complete">Selesai</option>
                                 </select>
@@ -35,7 +35,7 @@
                                 <button type="submit" class="btn btn-sm btn-primary mt-5">Filter</button>
                             </div>
                             <div>
-                                <a href="{{ route('transaction.index') }}" class="btn btn-sm btn-warning mt-5">Reset</a>
+                                <a href="{{ route('transaction.index') }}" class="btn btn-sm btn-warning mt-5 text-white">Tampilkan Semua</a>
                             </div>
                         </form>
                     </div>
